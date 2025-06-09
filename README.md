@@ -94,3 +94,18 @@ Este proyecto ha sido desarrollado utilizando un stack tecnológico moderno y ef
 <li>Git</li>
 
 </ul>
+
+<h2>Contacto</h2>
+Si tienes alguna pregunta, sugerencia o deseas colaborar, no dudes en contactarme
+
+<h3>Diego Pérez Sánchez</h3>
+
+<ul>
+
+Correo electrónico: d.perez.sanchez.dev@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/diego-perezdev/
+
+GitHub: DiegoPerezSanchezDev 
+
+</ul>

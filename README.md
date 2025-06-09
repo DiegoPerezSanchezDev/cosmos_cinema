@@ -1,66 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Cosmos Cinema
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+(Puedes reemplazar esta imagen con el logo real de Cosmos Cinema o una captura de pantalla atractiva de la aplicación.)
 
-## About Laravel
+Descripción del Proyecto
+Cosmos Cinema es una plataforma web integral diseñada para la gestión y reserva de salas de cine. Este proyecto busca ofrecer una solución completa tanto para los administradores de un cine, permitiéndoles gestionar películas, sesiones, usuarios y asientos, como para los usuarios finales, brindándoles una experiencia intuitiva para buscar películas y realizar reservas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+El propósito principal es automatizar y simplificar las operaciones diarias de un cine, mejorando la eficiencia en la administración y la experiencia del usuario.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Funcionalidades Principales
+Este proyecto ofrece un conjunto robusto de funcionalidades:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dashboard de Administración: Un panel de control intuitivo y completo que permite a los administradores gestionar integralmente:
 
-## Learning Laravel
+Películas: Añadir, editar y buscar información de películas.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Sesiones: Crear, modificar y eliminar horarios de proyección.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Usuarios: Administrar perfiles de usuario y empleados.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Asientos: Gestión del estado de los asientos en diferentes salas de cine (ocupados, disponibles, etc.).
 
-## Laravel Sponsors
+Evaluación de Ventas: Visualización y análisis diario, mensual y anual de las ventas del cine a través de gráficos.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Gestión de Salas y Asientos: Permite la administración del estado de los asientos en diferentes salas de cine, incluyendo la configuración inicial de la capacidad.
 
-### Premium Partners
+Integración con API de TMDB: Implementación de la búsqueda y adición eficiente de información detallada de películas (títulos, descripciones, pósteres, fechas de estreno) a la base de datos del sistema, agilizando la creación de contenido.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Autenticación y Registro Flexible:
 
-## Contributing
+Sistema de login y registro de usuarios robusto.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Utilización de Login de Google: Permite a los usuarios iniciar sesión de forma rápida y segura utilizando sus cuentas de Google.
 
-## Code of Conduct
+Registro con Google: Facilita el proceso de creación de nuevas cuentas a través de la integración con Google, mejorando la experiencia del usuario.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Integración de reCAPTCHA: Protección avanzada de formularios de login y registro para prevenir el spam y el abuso.
 
-## Security Vulnerabilities
+Gestión de Compra con Redsys: Implementación de la pasarela de pago Redsys para procesar transacciones de compra de entradas de forma segura y eficiente.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Generación de Documentos PDF:
 
-## License
+Entradas: Creación de entradas en formato PDF para los usuarios tras la compra.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Facturas: Generación de facturas en formato PDF para las compras realizadas.
+
+Nóminas: Creación de nóminas en formato PDF para la gestión de empleados.
+
+Gestión de Correo Electrónico:
+
+Validación de Cuenta: Envío de correos electrónicos para la validación de cuentas de usuario.
+
+Confirmación de Compra: Envío automático de entradas y facturas por correo electrónico tras una compra exitosa con Redsys.
+
+Credenciales de Empleados: Envío de credenciales de acceso a nuevos empleados creados por el administrador.
+
+Diseño Responsive: La interfaz de usuario está optimizada para su correcta visualización y funcionamiento en diversos dispositivos, desde ordenadores de escritorio hasta tabletas y teléfonos móviles, garantizando una experiencia consistente.
+
+Manejo de API Requests: Experiencia en la realización de peticiones a APIs para la obtención y manipulación de datos, fundamental para las integraciones externas.
+
+Tecnologías Utilizadas
+Este proyecto ha sido desarrollado utilizando un stack tecnológico moderno y eficiente:
+
+Backend:
+
+PHP
+
+Laravel
+
+MySQL
+
+Frontend:
+
+HTML5
+
+CSS
+
+JavaScript
+
+Chart.js (Para la visualización de datos y gráficos)
+
+Control de Versiones:
+
+Git

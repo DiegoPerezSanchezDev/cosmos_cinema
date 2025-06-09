@@ -1,11 +1,13 @@
 Cosmos Cinema
 
-Descripción del Proyecto
+Descripción del Proyecto: 
+
 Cosmos Cinema es una plataforma web integral diseñada para la gestión y reserva de salas de cine. Este proyecto busca ofrecer una solución completa tanto para los administradores de un cine, permitiéndoles gestionar películas, sesiones, usuarios y asientos, como para los usuarios finales, brindándoles una experiencia intuitiva para buscar películas y realizar reservas.
 
 El propósito principal es automatizar y simplificar las operaciones diarias de un cine, mejorando la eficiencia en la administración y la experiencia del usuario.
 
 Funcionalidades Principales
+
 Este proyecto ofrece un conjunto robusto de funcionalidades:
 
 Dashboard de Administración: Un panel de control intuitivo y completo que permite a los administradores gestionar integralmente:

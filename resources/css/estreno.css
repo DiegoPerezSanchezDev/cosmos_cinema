@@ -1,0 +1,108 @@
+/* Estilos para la cartelera de cine */
+.cartelera-box {
+    margin: 5% 5%;
+    justify-content: center;
+}
+
+.separador {
+    justify-self: center;
+    width: 80%;
+    border-bottom: 1px solid white;
+}
+
+.separador_compra {
+    justify-self: center;
+    width: 90%;
+    border-bottom: 1px solid white;
+}
+
+.cartelera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px 5%;
+    padding: 20px;
+    margin: 1%;
+}
+
+.cartel_pelicula {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 200px;
+    flex-grow: 0;
+    flex-basis: 229px;
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+}
+
+/* efecto neón y zoom hover */
+.cartel_pelicula:hover {
+    transform: translateY(-5px) scale(1.10);
+    box-shadow: 0 0 50px rgba(229, 9, 20, 0.5);
+}
+
+.imagen_pelicula_cartel {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.movie_poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* zoom */
+.cartel_pelicula:hover .movie_poster {
+    transform: scale(1.1);
+}
+
+
+.titulo_pelicula_cartel {
+    padding: 10px;
+    text-align: center;
+    margin-right: 15%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.comprar_cartel {
+    padding: 10px;
+    text-align: center;
+}
+
+.comprar_cartel button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.no_disponible {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}

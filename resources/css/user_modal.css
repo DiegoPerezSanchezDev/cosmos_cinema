@@ -1,0 +1,287 @@
+#modalCuenta .modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    text-align: left;
+    width: 95%;
+    max-width: 550px;
+    position: relative;
+    color: #f5f5f5;
+    max-height: 95vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCuenta .edit-field-container .checkbox-label {
+    display: flex;
+    align-items: center;
+    color: #f5f5f5;
+    font-size: 0.95em;
+    cursor: pointer;
+    width: 100%;
+}
+
+#modalCuenta .edit-field-container input[type="checkbox"].edit-field {
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#modalCuenta .edit-field-container .client-side-field-error {
+    width: 100%;
+    margin-left: 0;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+#modalCuenta {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#modalCuenta.hidden {
+    display: none !important;
+}
+
+#modalCuenta.flex {
+    display: flex !important;
+}
+
+#modalCuenta .modal-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.modal-header .modal-title {
+
+    margin-bottom: 0;
+}
+
+#modalCuenta .modal-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #f5f5f5;
+    margin: 0;
+    text-align: center;
+}
+
+#modalCuenta .modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+#modalCuenta .user-info-item strong {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+    color: #d12d10;
+    flex-shrink: 0;
+}
+
+#modalCuenta .user-info-item input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+        box-sizing: border-box;
+        font-size: 16px;
+        line-height: 1.5;
+}
+
+#modalCuenta .user-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+#modalCuenta .user-info-item span {
+    color: #f5f5f5;
+    flex-grow: 1;
+    padding: 1px 8px;
+    display: inline-block;
+}
+
+#modalCuenta .modal-actions button {
+    padding: 10px 20px;
+    font-size: x-large;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+
+#modalCuenta .edit-button:hover {
+    background-color: #d12d10;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Modo edición oculto */
+#modalCuenta .edit-field,
+#modalCuenta .client-side-field-error {
+    display: none;
+}
+
+/* Modo visualización no oculto */
+#modalCuenta .display-field {
+    display: inline-block;
+}
+
+#modalCuenta .edit-field-container {
+    display: none;
+}
+#modalCuenta .edit-field {
+    display: none;
+}
+
+/* Cuando el modal está en modo edición */
+#modalCuenta.is-editing .display-field {
+    display: none;
+}
+#modalCuenta.is-editing .edit-field-container {
+    display: block;
+}
+#modalCuenta.is-editing .edit-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Muestra el mensaje de error cuando el form-row tiene has-error Y el modal está en edición */
+#modalCuenta.is-editing .form-row.has-error .client-side-field-error {
+    display: block;
+}
+
+/* Estilo para los campos de edición cuando son inválidos Y el modal está en edición */
+#modalCuenta.is-editing .edit-field.invalid {
+    border-color: #d12d10 !important;
+}
+
+/* Muestra el mensaje de error */
+#modalCuenta .is-editing, .form-row.has-error, .client-side-field-error {
+    display: block;
+}
+
+/* Estilo para los campos de edición cuando son inválidos */
+#modalCuenta.is-editing, .edit-field.invalid {
+    border-color: #d12d10 !important;
+    box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25);
+}
+
+/* Estilos específicos para el botón Guardar Cambios*/
+#modalCuenta .modal-actions #guardarCambiosBtn {
+    background-color: #d12d10;
+    background-color: #555;
+}
+#modalCuenta .modal-actions #guardarCambiosBtn:hover {
+    background-color: #c40812;
+    background-color: #777;
+}
+
+/* Estilos específicos para el botón Cancelar */
+#modalCuenta .modal-actions #cancelarEdicionBtn {
+    background-color: #d12d10;
+}
+#modalCuenta .modal-actions #cancelarEdicionBtn:hover {
+    background-color: #c40812;
+}
+
+#profileUpdateSuccessMessage {
+    color: #d12d10;
+    padding: 10px 15px;
+    margin-top: 8px;
+    flex-basis: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#profileUpdateSuccessMessage.is-visible {
+    opacity: 1;
+    visibility: visible; 
+}
+#modalCuenta .error{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 450px) {
+    #modalCuenta .modal-content {
+        padding: 20px; /* Reducir el padding general */
+        width: 98%; /* Ocupar casi todo el ancho */
+        margin: 10% auto; /* Ajustar el margen vertical */
+    }
+
+    #modalCuenta .modal-title {
+        font-size: 1.5em; /* Reducir el tamaño del título */
+    }
+
+    #modalCuenta .user-info-item {
+        flex-direction: column; /* Apilar etiqueta y campo */
+        align-items: center; /* Alinear a la izquierda */
+        margin-bottom: 15px; /* Reducir el margen inferior */
+    }
+
+    #modalCuenta .user-info-item strong {
+        display: block; /* Asegurar que la etiqueta esté en una línea separada */
+        width: 100%;
+        margin-bottom: 5px;
+        margin-right: 0;
+        font-size: 0.9em;
+    }
+
+    #modalCuenta .user-info-item span,
+    #modalCuenta .user-info-item select {
+        width: 100%; /* Los campos ocupan todo el ancho */
+        font-size: 0.9em;
+    }
+
+    #modalCuenta .modal-actions button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+        margin-left: 5px;
+        margin-top: 10px; /* Añadir margen superior entre botones si se apilan */
+        width: calc(50% - 5px); /* Hacer que los botones ocupen la mitad del ancho (aproximadamente) */
+        box-sizing: border-box;
+    }
+
+    #modalCuenta .edit-field-container .checkbox-label {
+        font-size: 0.9em;
+    }
+
+    #modalCuenta .edit-field-container input[type="checkbox"].edit-field {
+        margin-right: 5px;
+    }
+}

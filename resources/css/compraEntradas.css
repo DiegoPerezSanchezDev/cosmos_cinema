@@ -1,0 +1,742 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- ESTILOS PARA #seccionCompra --- */
+#seccionCompra {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal DENTRO de #seccionCompra */
+.seccion-compra-contenido {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    max-width: 1500px;
+    min-height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* --- Columna Izquierda: Sesiones --- */
+.seccion_sesiones {
+    width: 35%;
+    padding: 25px;
+    box-sizing: border-box;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
+    border-right: 1px solid white;
+}
+/* Estilos para scrollbar en .seccion_sesiones */
+.seccion_sesiones::-webkit-scrollbar { width: 6px; }
+.seccion_sesiones::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 3px;}
+.seccion_sesiones::-webkit-scrollbar-thumb { background-color: #6feaf6; border-radius: 3px; }
+.seccion_sesiones { scrollbar-width: thin; scrollbar-color: #6feaf6 rgba(255,255,255,0.05); }
+
+
+/* --- Columna Derecha: Asientos --- */
+.seccion_asientos {
+    width: 65%;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+/* Estilos para scrollbar en .seccion_asientos */
+.seccion_asientos::-webkit-scrollbar { width: 6px; }
+.seccion_asientos::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 3px;}
+.seccion_asientos::-webkit-scrollbar-thumb { background-color: #6feaf6; border-radius: 3px; }
+.seccion_asientos { scrollbar-width: thin; scrollbar-color: #6feaf6 rgba(255,255,255,0.05); }
+
+
+/* Contenedor para un día y sus horas */
+.session-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.session-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.day-info {
+    flex: 0 0 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    text-align: center;
+}
+.day-label {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 4px;
+}
+.date-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Contenedor de las horas para un día */
+.times-list {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 8px;
+}
+
+ /* Cada hora individual */
+.session-time {
+    padding: 10px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+    font-size: 0.9em;
+    color: #f0f0f0;
+}
+.session-time:hover {
+    background-color: rgba(213, 213, 213, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Clase para la sesión seleccionada */
+.session-time.selected-session {
+    background-color: #6feaf6;
+    color: #121212;
+    font-weight: bold;
+    border-color: #6feaf6;
+}
+
+
+/* --- Estilos para .seccion_asientos (Columna Derecha) --- */
+.seccion_asientos_header {
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contenedor_principal_asientos_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Contiene título de peli y detalles de sesión */
+.columna_izquierda {
+    flex-basis: 65%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+.superior_izquierda { margin-bottom: 15px; }
+.pelicula_asientos {
+    font-size: 2.3em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.inferior_izquierda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 15px;
+    font-size: 1.1em;
+    align-items: start;
+}
+.header_titulo {
+    color: #6feaf6;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+ /* Contiene géneros */
+.columna_derecha {
+    font-size: 1.2em;
+    flex-basis: 30%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.header_genero {
+    border: 1px solid #6feaf6;
+    width: auto;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+ /* Leyenda de asientos */
+.seccion_asientos_header .inferior {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Leyenda */
+.showcase {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.showcase li {
+    display: flex;
+    align-items: center;
+}
+.showcase li .seat {
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    border-radius: 3px;
+    cursor: default;
+}
+.leyenda_text {
+    font-size: 0.85em;
+    color: #ccc;
+}
+
+
+/* Contenedor de la pantalla y los asientos */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    perspective: 200px;
+}
+.screen {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 0;
+    text-align: center;
+    justify-self: center;
+    align-content: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: auto;
+    min-height: 40px;
+    width: 70%;
+    margin: 20px 0 30px 0;
+    transform: rotateX(-30deg);
+    box-shadow: 0 8px 20px rgba(111, 234, 246, 0.3);
+    border-radius: 5px 5px 0 0;
+}
+.screen::before { content: "PANTALLA"; display: block;}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+.seat{
+    background-color: #444451;
+    height: 20px;
+    width: 24px;
+    margin: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    transition: transform .2s ease, background-color .2s ease;
+    cursor: pointer;
+}
+
+.seat.selected { background-color: #6feaf6; }
+.seat.occupied { background-color: #d12d10; cursor: not-allowed; }
+.seat:not(.occupied):not(.selected):hover { transform: scale(1.15); background-color: #767990; }
+.seat.selected:not(.occupied):hover { transform: scale(1.15); background-color: #aef8fe; }
+
+
+.gap { /* Para los pasillos */
+    background-color: transparent;
+    height: 20px;
+    width: 24px;
+    margin: 2px;
+    border-radius: 0;
+}
+
+/* Texto de asientos seleccionados y precio total */
+.text-wrapper {
+    margin-top: 25px;
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 1.1em;
+}
+.text-wrapper p.text span { color: #6feaf6; font-weight: bold; }
+
+
+/* Botones de acción */
+.acciones_compra {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto 10px auto;
+    gap: 20px;
+}
+
+/* Estilos comunes para ambos botones */
+#cerrarCompra, .confirmar_seleccion {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1;
+    max-width: 220px;
+}
+#cerrarCompra {
+    color: #f0f0f0;
+    background-color: #555;
+}
+#cerrarCompra:hover {
+    background-color: #777;
+    transform: translateY(-2px);
+}
+.confirmar_seleccion {
+    color: white;
+    background-color: #d12d10;
+}
+.confirmar_seleccion:hover {
+    background-color: #e04429;
+    transform: translateY(-2px);
+}
+
+
+/* Clases de visibilidad */
+.visible {
+    display: flex !important;
+    opacity: 1;
+}
+.hidden {
+    display: none !important;
+}
+
+
+/* --- ESTILOS PARA EL LISTADO DE ASIENTOS SELECCIONADOS --- */
+
+#container_asientos_selec {
+    width: 80%;
+    align-self: center;
+    max-height: 180px;
+    overflow-y: auto;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* Estilos para la barra de scroll */
+#container_asientos_selec::-webkit-scrollbar { width: 6px; }
+#container_asientos_selec::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); border-radius: 3px;}
+#container_asientos_selec::-webkit-scrollbar-thumb { background-color: #6feaf6; border-radius: 3px; }
+#container_asientos_selec { scrollbar-width: thin; scrollbar-color: #6feaf6 rgba(255,255,255,0.08); }
+
+/* Título "Asientos Seleccionados" */
+#container_asientos_selec .columna_izquierda_titulo {
+    width: 75%;
+    font-size: 1.5em;  
+    justify-self: center;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Contenedor para CADA fila de asiento seleccionado + su precio */
+.fila_asiento_seleccionado_con_precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0; 
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    color: #e0e0e0;
+}
+.fila_asiento_seleccionado_con_precio:last-child {
+    border-bottom: none;
+}
+
+/* Estilo para la columna de información del asiento (Fila X, Columna Y) */
+.info_asiento_seleccionado {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+/* Estilo para la columna del precio individual del asiento */
+.precio_asiento_individual_lista {
+    flex-basis: 50%;
+    text-align: center;
+    font-weight: bold;
+    color: #6feaf6;
+}
+
+/* --- Estilos para la sección inferior con el botón y el total final --- */
+#listado_asientos_abajo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid white;
+}
+
+ /* Contenedor del botón CONFIRMAR */
+#listado_asientos_abajo .columna_izquierda_lista {
+    width: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+#listado_asientos_abajo .confirmar_seleccion {
+    padding: 10px 25px;
+    font-size: 1em;
+}
+
+/* Contenedor del PRECIO TOTAL final */
+#listado_asientos_abajo .columna_derecha_lista {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Si tienes un título "Total:" separado del valor */
+#listado_asientos_abajo .columna_derecha_titulo {
+    font-size: 1.1em;
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+#listado_asientos_abajo #precio_total {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #6feaf6;
+    margin-bottom: 0;
+}
+
+
+/* --- MEDIA QUERY para max-width: 1200px (Ajustes para estas secciones) --- */
+@media (max-width: 1200px) {
+    #container_asientos_selec {
+        max-height: 150px;
+        padding: 10px 5px;
+    }
+    #container_asientos_selec .columna_izquierda_titulo {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+    .fila_asiento_seleccionado_con_precio {
+        font-size: 0.85em;
+        padding: 5px 0;
+    }
+
+    #listado_asientos_abajo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    #listado_asientos_abajo .columna_izquierda_lista,
+    #listado_asientos_abajo .columna_derecha_lista {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        align-items: center;
+    }
+    
+    #listado_asientos_abajo .confirmar_seleccion {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    #listado_asientos_abajo #precio_total {
+        font-size: 1.3em;
+    }
+}
+
+
+
+/* //////////// MEDIA QUERY: max-width: 1200px //////////// */
+@media (max-width: 1200px) {
+    #seccionCompra {
+        padding: 10px; 
+    }
+
+    .seccion-compra-contenido {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;      
+        height: auto;
+        gap: 25px;              
+        padding: 15px;
+        overflow: visible; 
+    }
+
+    .seccion_sesiones {
+        width: 100%;        
+        height: auto;       
+        padding-right: 0;   
+        border-right: none;
+        order: 1;
+        overflow-y: visible;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .session-row {
+        width: 50%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 10px;
+    }
+    .session-row:last-child { border-bottom: none; }
+
+    .day-info {
+        flex-basis: auto;
+        min-width: 0;
+        width: 100%;
+        padding: 8px 5px;
+    }
+    .date-label { font-size: 1em; }
+    .day-label { font-size: 0.85em; }
+
+
+    .times-list {
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+        gap: 6px;
+    }
+    .session-time {
+        padding: 8px 4px;
+        font-size: 0.85em;
+    }
+
+
+    .seccion_asientos {
+        width: 100%;        
+        height: auto;       
+        border-left: none;  
+        border-top: 1px solid rgba(255, 255, 255, 0.2); 
+        padding: 15px 10px;
+        order: 2;
+        overflow-y: visible;
+    }
+    .seccion_asientos::-webkit-scrollbar { display: none; }
+    .seccion_asientos { scrollbar-width: none; -ms-overflow-style: none; }
+
+    .contenedor_principal_asientos_header {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .columna_izquierda, .columna_derecha {
+        width: 100%; 
+        text-align: center;
+    }
+    .columna_derecha {
+        margin-top: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .inferior_izquierda {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        font-size: 0.9em;
+        justify-items: center;
+    }
+    .pelicula_asientos { font-size: 1.6em; }
+
+
+    .container_asientos_grid { max-width: 100%; }
+    .screen { width: 85%; min-height: 30px; font-size: 0.8em; }
+
+    .seat { height: 14px; width: 18px; border-top-left-radius: 3px; border-top-right-radius: 3px; margin: 1px;}
+    .gap { height: 14px; width: 18px; margin: 1px;}
+
+    #container_asientos_selec {
+        width: 95%;
+        max-height: 120px;
+        margin-top: 15px;
+        padding: 8px 5px;
+    }
+    #container_asientos_selec .columna_izquierda_titulo {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    .fila_asiento_seleccionado_con_precio {
+        font-size: 0.8em;
+        padding: 4px 0;
+    }
+
+    #listado_asientos_abajo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+    #listado_asientos_abajo .columna_izquierda_lista,
+    #listado_asientos_abajo .columna_derecha_lista {
+        width: 100%;
+        align-items: center;
+        padding: 0;
+    }
+    #listado_asientos_abajo .confirmar_seleccion {
+        width: 100%;
+        max-width: 260px;
+        font-size: 0.95em;
+        padding: 10px;
+    }
+    #listado_asientos_abajo #precio_total { font-size: 1.2em; }
+
+
+    .acciones_compra {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 95%;
+        margin-top: 15px;
+    }
+    #cerrarCompra, .confirmar_seleccion {
+        width: 100%;
+        max-width: 260px;
+        padding: 10px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    #seccionCompra {
+        padding: 5px;
+    }
+    .seccion-compra-contenido {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .seccion_sesiones {
+        width: 100%;        
+        height: auto;       
+        padding-right: 0;   
+        border-right: none;
+        order: 1;
+        overflow-y: visible;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+        gap: 5px;
+    }
+    .session-row {
+        width: 50%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+    }
+    .day-info {
+        width: 100%;
+        flex: unset;
+        padding: 6px;
+    }
+    .times-list {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 5px;
+    }
+    .session-time {
+        padding: 6px 3px;
+        font-size: 0.8em;
+    }
+
+    .seccion_asientos {
+        padding: 15px 5px;
+    }
+    .contenedor_principal_asientos_header {
+        gap: 10px;
+    }
+    .pelicula_asientos { font-size: 1.5em; }
+    .inferior_izquierda {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        font-size: 0.85em;
+    }
+    .columna_derecha {
+        margin-top: 10px;
+    }
+    .header_genero { font-size: 0.75em; padding: 3px 8px; }
+    
+    .showcase { gap: 10px; }
+    .showcase li .seat { height: 15px; width: 15px; }
+    .leyenda_text { font-size: 0.8em; }
+
+
+    .container_asientos_grid {
+        overflow-x: auto;
+        overflow-y: visible;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .container_asientos_grid::-webkit-scrollbar { height: 6px; }
+    .container_asientos_grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 3px;}
+    .container_asientos_grid::-webkit-scrollbar-thumb { background-color: #6feaf6; border-radius: 3px; }
+    .container_asientos_grid { scrollbar-width: thin; scrollbar-color: #6feaf6 rgba(255,255,255,0.05); }
+
+
+    .screen { width: 95%; min-height: 25px; font-size: 0.75em; margin: 15px 0 20px 0;}
+    .seat { height: 15px; width: 18px; margin: 1px; border-top-left-radius: 3px; border-top-right-radius: 3px;}
+    .gap { height: 15px; width: 18px; margin: 1px;}
+
+    #container_asientos_selec {
+        width: 100%;
+        max-height: 100px;
+        margin-top: 10px;
+    }
+    #container_asientos_selec .columna_izquierda_titulo { font-size: 1em; }
+    .fila_asiento_seleccionado_con_precio { font-size: 0.75em; }
+
+    #listado_asientos_abajo { gap: 10px; }
+    #listado_asientos_abajo .confirmar_seleccion { max-width: 100%; font-size: 0.9em; padding: 10px; }
+    #listado_asientos_abajo #precio_total { font-size: 1.1em; }
+}

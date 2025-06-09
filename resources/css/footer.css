@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+/* Estilos Generales del Contenedor Principal del Footer */
+footer {
+    background-color: #1a1a1a; /* Un gris oscuro, casi negro */
+    color: #a0a0a0; /* Un gris claro para el texto general */
+    padding: 30px 20px 15px 20px; /* Espaciado interno: arriba, lados, abajo */
+    font-size: 0.9em;
+    border-top: 1px solid white; /* Línea superior (ajustado desde tu último bloque) */
+    text-align: center; /* Centrar contenido por defecto */
+}
+
+/* Contenedor del Contenido Principal del Footer (Enlaces e Iconos Sociales) */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: space-around; /* Distribuir espacio alrededor */
+    gap: 20px; /* Espacio entre secciones */
+    margin-bottom: 25px;
+}
+
+/* Estilos Base para Cada Sección del Footer */
+.footer-section {
+    flex: 1; /* Permite que las secciones crezcan */
+    min-width: 200px; /* Ancho mínimo para evitar que se compriman demasiado */
+    text-align: left; /* Alineación izquierda para el contenido de cada sección por defecto */
+}
+
+.footer-section h4 { /* Estilo general para todos los títulos de sección */
+    color: #ffffff; /* Blanco para los títulos de sección */
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #444; /* Línea sutil bajo el título */
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Sección de Enlaces de Información (con columnas) */
+.links-columns { /* Contenedor para las columnas de enlaces */
+    display: flex;
+    flex-direction: row; /* Por defecto en fila para pantallas grandes */
+    justify-content: space-between; /* O 'space-around' si prefieres más espacio */
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+.link-column { /* Estilo para cada columna de enlaces */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1; /* Cada columna tomará espacio disponible equitativamente */
+    min-width: 150px; /* Ancho mínimo para cada columna antes de que se rompa o envuelva */
+}
+
+.link-column li {
+    margin-bottom: 8px;
+}
+
+.link-column li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.link-column li a:hover {
+    color: #ffffff; /* Blanco al pasar el ratón */
+    padding-left: 5px; /* Pequeño desplazamiento */
+}
+
+/* Sección de Redes Sociales */
+.footer-section.social {
+    min-width: 30%;
+    max-width: fit-content;
+    flex-grow: 0;
+}
+
+.footer-section.social .social-icons {
+    display: flex;
+    gap: 15px; /* Espacio entre iconos */
+    justify-content: flex-start; /* Alinea los iconos al inicio en su sección por defecto */
+}
+
+.footer-section.social .social-icons a {
+    color: #a0a0a0;
+    display: inline-block; /* Para que la transición funcione bien */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-section.social .social-icons a:hover {
+    color: #ffffff;
+    transform: scale(1.2); /* Agranda un poco el icono */
+}
+
+.footer-section.social .social-icons a svg {
+    width: 22px; /* Tamaño de los iconos SVG */
+    height: 22px;
+    fill: currentColor; /* El SVG tomará el color del 'a' padre */
+}
+
+/* Parte Inferior del Footer (Copyright, etc.) */
+.footer-bottom {
+    border-top: 1px solid #333; /* Separador sutil */
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+.footer-bottom .made-with-love {
+    font-style: italic;
+    color: #888;
+}
+
+.footer-bottom .heart {
+    color: #d12d10; /* Tu color de acento para el corazón */
+    font-size: 1.2em;
+    display: inline-block;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+/* ==========================================================================
+   Media Queries para Responsividad del Footer
+   ========================================================================== */
+
+/* TABLETS Y DISPOSITIVOS INTERMEDIOS (ej. <= 768px) */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Apila las secciones verticalmente */
+        align-items: center; /* Centra las secciones apiladas */
+    }
+
+    .footer-section {
+        width: 90%; /* Que las secciones ocupen más ancho */
+        max-width: 350px; /* Pero no demasiado */
+        text-align: center; /* Centrar el texto dentro de las secciones */
+        margin-bottom: 20px; /* Espacio entre secciones apiladas */
+    }
+    .footer-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-section h4 { /* Centrar los títulos de sección */
+        text-align: center;
+    }
+
+    /* Ajustes para las columnas de enlaces en pantallas pequeñas */
+    .links-columns {
+        flex-direction: column; /* Cambia a columna */
+        align-items: center; /* Centra las listas (ahora filas) */
+    }
+
+    .link-column {
+        width: 100%; /* Cada lista ocupa todo el ancho disponible */
+        min-width: auto; /* Resetea el min-width */
+        margin-bottom: 10px; /* Espacio entre las listas apiladas */
+        text-align: center; /* Centrar los items de la lista */
+    }
+    .link-column:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Ajustes para la sección social en pantallas pequeñas */
+    .footer-section.social .social-icons {
+        justify-content: center; /* Centra los iconos sociales */
+    }
+}
+
+/* MÓVILES (ej. <= 480px) */
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 15px 10px 15px; /* Menos padding en móviles */
+    }
+
+    .footer-section h4 { /* Reducir tamaño de fuente para los títulos de sección */
+        font-size: 1em;
+    }
+    
+    /* Los estilos de .link-column de 768px se heredan bien,
+       no se necesitan cambios específicos a menos que se desee. */
+
+    .footer-section.social .social-icons a svg { /* Reducir tamaño de iconos sociales */
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-bottom { /* Reducir tamaño de fuente en el bottom */
+        font-size: 0.75em;
+    }
+
+    .links-columns {
+        gap: 0;
+    }
+
+    .link-column {
+        margin-bottom: 0;
+    }
+}

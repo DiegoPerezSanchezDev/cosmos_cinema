@@ -1,0 +1,121 @@
+/* ------ MENU HAMBURGUESA ------ */
+
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px 0;
+    z-index: 1005;
+    position: relative;
+}
+
+.hamburger-button__line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #f5f5f5;
+    margin: 6px 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 1px;
+}
+
+/* Hamburger animation to 'X' when open */
+.hamburger-button.open .hamburger-button__line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-button.open .hamburger-button__line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button.open .hamburger-button__line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Media Query for screens below 1024px */
+@media (max-width: 1025px) {
+    .header-section {
+        justify-content: space-between;
+    }
+
+    .hamburger-button {
+        display: block;
+        margin-left: 5%;
+    }
+
+    .header-buttons {
+        display: none !important;
+        gap: 0;
+    }
+
+    .header-buttons.mobile-menu-active {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: fit-content;
+        background-color: rgba(10, 10, 10, 0.98);
+        padding-top: 120px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 1000;
+        border: 1px solid white;
+    }
+
+    /* Styling for items inside the mobile menu */
+    .header-buttons.mobile-menu-active > *,
+    .header-buttons.mobile-menu-active > form {
+        width: 80%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .header-buttons.mobile-menu-active .success-message {
+        order: -1;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 25px;
+        color: #d12d10;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+    }
+    /* Make sure flash message .show works inside mobile menu */
+    .header-buttons.mobile-menu-active .success-message.show {
+        display:none;
+    }
+
+    .header-buttons.mobile-menu-active button,
+    .header-buttons.mobile-menu-active form button {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 2em;
+        border-top: 1px solid white;
+    }
+
+    .header-buttons.mobile-menu-active button a,
+    .header-buttons.mobile-menu-active form button a {
+        display: block;
+        color: #f5f5f5;
+        text-decoration: none;
+    }
+
+    .header-buttons.mobile-menu-active form {
+        display: block;
+    }
+}
+
+@media (max-width: 468px) {
+    .header-buttons.mobile-menu-active {
+        width: 100vw;
+    }
+
+    .header-buttons.mobile-menu-active button,
+    .header-buttons.mobile-menu-active form button {
+        font-size: 3.5em;
+    }
+}

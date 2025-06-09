@@ -1,0 +1,40 @@
+parameters:
+    # La ruta a los archivos que PHPStan debe analizar.
+    paths:
+        - app
+        - routes
+        - config
+        - database
+        - resources
+        # - tests # Descomenta si también quieres analizar tus tests
+
+    # Nivel de análisis (0 es el más laxo, 9 el más estricto).
+    # ¡Empieza con un nivel bajo (0-2) para un proyecto existente y ve subiéndolo!
+    # Para un proyecto nuevo, puedes intentar empezar más alto (ej. 5).
+    level: 5
+
+    # Opcional: Directorio temporal para la caché de PHPStan.
+    # Útil para mejorar la velocidad en análisis subsecuentes.
+    # Asegúrate de que este directorio exista y sea escribible.
+    # tmpDir: storage/phpstan
+
+    # Opcional: Ignorar errores específicos si son falsos positivos o quieres abordarlos más tarde.
+    # ignoreErrors:
+    #     - '#PHPDoc tag @var in method App\\Http\\Controllers\\SomeController::someMethod\(\) is not valid\.#'
+    #     -
+    #         message: '#Call to an undefined method App\\Models\\User::nonExistentMethod\(\)\.#'
+    #         paths:
+    #             - app/Services/UserService.php
+
+    # Opcional: Definir el stub del modelo Eloquent para mejorar el análisis de relaciones y atributos mágicos.
+    # Esto es especialmente útil si no usas phpdoc blocks extensivamente en tus modelos.
+    # Puedes generarlo con: php artisan ide-helper:models --write-mixin
+    # O usar el stub que viene con Larastan (suele funcionar bien por defecto)
+    # larastan:
+    #     stubFiles:
+    #         - stubs/EloquentCollection.stub # Ejemplo si tuvieras un stub personalizado
+    #     phpDocComment:
+    #         eloquentMagicMethods: true
+
+# Puedes añadir más configuraciones específicas de Larastan aquí si es necesario.
+# Consulta la documentación de Larastan para opciones avanzadas.

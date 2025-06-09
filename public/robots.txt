@@ -1,0 +1,30 @@
+User-agent: *
+
+# Generales
+Disallow: /admin/
+Disallow: /administrador/
+Disallow: /login
+Disallow: /logout
+Disallow: /register
+Disallow: /verify-email/
+Disallow: /auth/
+
+# Perfiles de usuario y áreas de empleado
+Disallow: /perfil/
+Disallow: /empleado/
+
+# Endpoints AJAX o de comprobación de datos
+Disallow: /check-email
+Disallow: /check-dni
+Disallow: /check-dni-profile
+Disallow: /ciudades
+Disallow: /recuperar_sesiones/
+Disallow: /recuperar_asientos/
+Disallow: /recuperar_sesion/
+
+# Procesos de compra y pago
+Disallow: /procesar_pago
+Disallow: /entrada/
+Disallow: /redsys/
+
+Sitemap: https://www.cosmoscinema.es/sitemap.xml

@@ -1,0 +1,51 @@
+.logo-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.cinema_logo_errors {
+    height: 150px;
+    width: auto;
+}
+
+.subtitulo_404_div {
+    padding: 20px;
+}
+
+.errors_titulo {
+    color:#d12d10;
+    font-weight: bold;
+}
+
+.subtitulo_404 {
+    font-size: 1.5em;
+}
+
+.lead {
+    margin: 5%; 
+}
+
+.error_link {
+    color: #d12d10;
+    font-weight: bold;
+}
+
+.error_btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: #d12d10;
+}
+
+.error_btn:hover {
+    background-color: #c40812;
+}

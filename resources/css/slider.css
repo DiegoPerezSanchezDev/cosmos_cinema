@@ -1,0 +1,843 @@
+/* Estilos globales */
+html {
+    scroll-behavior: smooth;
+
+}
+
+body {
+    background-color: #000000;
+    color: #f5f5f5;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Se aplica cuando se abre un modal */
+.modal_abierto {
+    overflow: hidden;
+}
+
+/* Estilos del encabezado */
+.header-section {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    background-color: #000000;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo para el mensaje de éxito flasheado (LOGIN, LOGOUT, REGISTRO) */
+.success-message {
+    color: #d12d10;
+    padding: 10px s0px;
+    border-radius: 5px;
+    font-weight: bold;
+    flex-shrink: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+}
+
+.success-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cinema-logo {
+    height: 100px;
+    width: auto; 
+}
+
+.header-buttons button{
+    padding: 10px 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+
+.header-buttons button:hover {
+    background-color: #d12d10;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el enlace de COMPRAR ENTRADAS que contiene un botón */
+.header-buttons a button {
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo para el formulario de logout */
+.header-buttons form {
+    display: inline;
+    flex-shrink: 0;
+}
+
+
+
+/* Estilos para el contenedor clonable */
+.cloneable {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    position: relative;
+    font-size: 1.1vw;
+}
+
+/* Estilos para la capa de superposición (overlay) */
+.overlay {
+    z-index: 2;
+    background-image: linear-gradient(
+        90deg,
+        #000000 85%,
+        rgba(0, 0, 0, 0)
+    );
+    justify-content: flex-start;
+    width: 37.5em;
+    height: 100%;
+    padding-left: 2em;
+    display: flex;
+    position: absolute;
+}
+
+.general-errors{
+    color:#e50914;
+    margin-top: 5px;
+}
+
+
+/* Estilos internos de la superposición */
+.overlay-inner {
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height:77%;
+    display: flex;
+    width: 80%;
+}
+
+/* Fila de contador */
+.overlay-count-row {
+    grid-column-gap: 0.2em;
+    grid-row-gap: 0.2em;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "PP Neue Corp", Impact, sans-serif;
+    font-size: 4.5em;
+    font-weight: 700;
+    display: flex;
+}
+
+/* Estilos de los contadores */
+.count-column {
+    overflow: hidden;
+}
+
+.count-heading {
+    font-size: 1em;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Fila de navegación de la superposición */
+.overlay-nav-row {
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+    display: flex;
+}
+
+/* Estilos del botón (genérico, aplicado a botones dentro del overlay) */
+.button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.4em;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    padding: 0;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.button-arrow {
+    flex: none;
+    width: 1em;
+    height: 0.75em;
+}
+
+.button-arrow.next {
+    transform: rotate(180deg);
+}
+
+.button-overlay {
+    z-index: 2;
+    position: absolute;
+    inset: -1px;
+}
+
+/* Esquinas de la superposición */
+.overlay-corner {
+    border-top: 1px solid #f5f5f5;
+    border-left: 1px solid #f5f5f5;
+    border-top-left-radius: 0.4em;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+}
+
+.overlay-corner.top-right {
+    inset: 0 0 auto auto;
+    transform: rotate(90deg);
+}
+
+.overlay-corner.bottom-left {
+    inset: auto auto 0 0;
+    transform: rotate(-90deg);
+}
+
+.overlay-corner.bottom-right {
+    inset: auto 0 0 auto;
+    transform: rotate(180deg);
+}
+
+/* Transiciones del botón (overlay) */
+.button,
+.button-overlay {
+    transition: transform 0.475s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.475s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.button:hover .button-overlay {
+    transform: scale(1.4);
+}
+
+.overlay-nav-row:hover:has(.button:hover) .button {
+    opacity: 0.4;
+}
+
+.button:hover {
+    transform: scale(0.85);
+    opacity: 1 !important;
+}
+
+/* Estilos para el slider */
+.main {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.slider-wrap {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/*Scroll de ciudades*/
+.ciudad-scroll {
+    overflow-y: auto;
+    height: auto;
+    max-height: 150px;
+}
+
+/* Estilos para mensajes de error unificados */
+.error-text {
+    color: #d12d10;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.client-side-field-error{
+    color: #d12d10;
+}
+
+/* Estilo para campos inválidos */
+.invalid {
+    border-color: #d12d10 !important;
+    box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25);
+}
+
+
+/* Estilo para el contenedor de errores de Laravel de Registro */
+.error-messages, .error-text {
+    color: #d12d10;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.error-text {
+    color: #d12d10;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.error-messages ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.error-messages li {
+    color: #d12d10;
+    margin-top: 10px;
+}
+
+.g_id_signin{
+    margin-bottom: 5%;
+}
+
+/* styles.css o tu archivo CSS principal */
+
+.btn-google {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid transparent;
+
+    /* Colores estándar de Google (azul) */
+    background-color: black;
+    border: white solid 1px;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-google:hover {
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-google:active {
+    background-color: black;
+}
+
+.btn-google .google-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    background-color: white;
+    border-radius: 2px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-google svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+/* Estilos para el modo "outline"*/
+.btn-google.outline {
+    background-color: white;
+    color: #4285F4;
+    border: 1px solid #dadce0;
+    box-shadow: none;
+}
+
+.btn-google.outline:hover {
+    background-color: #f8f9fa;
+    border-color: #c6c9cc;
+    box-shadow: none;
+}
+
+.btn-google.outline .google-icon {
+    background-color: transparent;
+}
+
+/* Estilos del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilos del contenedor del formulario dentro del modal */
+.modal .form-container {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 95%;
+    max-width: 500px;
+    position: relative;
+    color: #fff;
+    max-height: 95vh;
+    overflow-y: auto;
+    
+    /* Para Chrome, Edge, Safari */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Para Firefox */
+    scrollbar-width: none;
+
+    /* Para Internet Explorer y Edge (legacy) */
+    -ms-overflow-style: none;
+}
+
+/* Estilo del botón de cerrar (X) */
+.modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+}
+
+/* Estilo del contenedor del logo */
+.modal .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.modal .logo {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Estilo para los pasos del formulario en modal */
+.modal .form-step {
+    display: none;
+}
+
+.modal .form-step.active {
+    display: block;
+}
+
+/* Estilo para los inputs del formulario en modal */
+.modal .input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.modal .form-row.two-columns-row {
+    display: flex;
+    gap: 20px;
+}
+
+.modal .form-row.two-columns-row .half-width {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.modal .input::placeholder {
+    color: #777;
+}
+
+/* Estilo para la fila de formulario */
+.modal .form-row {
+    margin-bottom: 15px;
+}
+
+
+/* Estilo para el grupo de botones */
+.modal .button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Estilos base para botones .btn en el modal */
+.modal .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+
+/* Estilos específicos por tipo de botón en el modal */
+.modal .next-step,
+.modal .btn[type="submit"] {
+    background-color: #d12d10;
+}
+
+.modal .next-step:hover,
+.modal .btn[type="submit"]:hover {
+    background-color: #c40812;
+}
+
+.modal .prev-step,
+.modal .btn.back-button {
+    background-color: #555;
+}
+
+.modal .prev-step:hover,
+.modal .btn.back-button:hover {
+    background-color: #777;
+}
+
+
+/* Estilo para etiquetas de formulario en el modal */
+.modal label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #ccc;
+    text-align: left;
+}
+
+.modal label input[type="checkbox"] {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+/* Fuente personalizada */
+@font-face {
+    font-family: "PP Neue Corp";
+    src: url("https://cdn.prod.website-files.com/6717aac16c9ea22eeef1e79e/6717de2d56e40b921572d2d9_PPNeueCorp-TightUltrabold.woff2")
+    format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Estilos del slider */
+.slider-list {
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    display: flex;
+    position: relative;
+    height: 78%;
+}
+
+.slider-slide {
+    flex: none;
+    width: 42.5em;
+    height: 28em;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+    transition: opacity 0.4s;
+    position: relative;
+}
+
+[data-slider="slide"] {
+    opacity: 0.2;
+}
+
+[data-slider="slide"].active {
+    opacity: 1;
+}
+
+/* Estilos internos de la diapositiva */
+.slide-inner {
+    border-radius: 0.5em;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie_poster {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* Imagen de la diapositiva */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption-dot {
+    background-color: #333333;
+    border-radius: 10em;
+    flex: none;
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.caption {
+    font-size: 0.75em;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Password input styles */
+.password-input-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container input.input {
+    flex-grow: 1;
+    padding-right: 30px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    color: #888;
+    z-index: 2;
+    font-size:0.9em;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+
+/* Asegurar que la clase hidden funciona */
+.hidden {
+    display: none !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+
+
+/* ------ MENU HAMBURGUESA ------ */
+
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px 0;
+    z-index: 1005;
+    position: relative;
+}
+
+.hamburger-button__line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #f5f5f5;
+    margin: 6px 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 1px;
+}
+
+/* Hamburger animation to 'X' when open */
+.hamburger-button.open .hamburger-button__line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-button.open .hamburger-button__line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button.open .hamburger-button__line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Bloquear scroll cuando se abre el menú */
+body.mobile-menu-body-lock {
+    overflow: hidden;
+}
+
+
+/* Media Query for screens below 1024px */
+@media (max-width: 1025px) {
+    .header-section {
+        justify-content: space-between;
+    }
+
+    .hamburger-button {
+        display: block;
+        margin-left: 5%;
+    }
+
+    .header-buttons {
+        display: none !important;
+        gap: 0;
+    }
+
+    .header-buttons.mobile-menu-active {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50vw;
+        height: fit-content;
+        background-color: rgba(10, 10, 10, 0.98);
+        padding: 20px;
+        padding-top: 120px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 1000;
+        border: 1px solid white;
+    }
+
+    /* Styling for items inside the mobile menu */
+    .header-buttons.mobile-menu-active > *,
+    .header-buttons.mobile-menu-active > form {
+        width: 80%;
+        max-width: 350px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .header-buttons.mobile-menu-active .success-message {
+        order: -1;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 25px;
+        color: #d12d10;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+    }
+    /* Make sure flash message .show works inside mobile menu */
+    .header-buttons.mobile-menu-active .success-message.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .swiper-slide.hero-slide {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+        background-color: #000000;
+    }
+
+    .cloneable {
+        /* padding: 20px; */
+        justify-content: center;
+        align-items: center;
+        /* min-height: calc(100vh - 60px); */
+        display: flex;
+        position: relative;
+        font-size: 1.1vw;
+    }
+
+    .main {
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        /* position: absolute; */
+        inset: 0;
+        overflow: hidden;
+    }
+
+
+    .header-buttons.mobile-menu-active button,
+    .header-buttons.mobile-menu-active form button {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 1.1em;
+        border-top: 1px solid white;
+    }
+    
+    .header-buttons.mobile-menu-active button a,
+    .header-buttons.mobile-menu-active form button a {
+        display: block;
+        color: #f5f5f5;
+        text-decoration: none;
+    }
+
+    .header-buttons.mobile-menu-active form {
+        display: block;
+    }
+}
+@media (max-width: 769px) {
+    .hero-slider-container .hero-slide-background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-position: center center;
+        z-index: 1;
+    }
+}
+
+@media (max-height: 500px) {
+    .cloneable {
+        min-height: 150vh;
+    }
+}

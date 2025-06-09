@@ -1,0 +1,456 @@
+/* Estilos del modal de Confirmar Selección */
+.modal_confirmar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal_confirmar_seleccion_form {
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    z-index: inherit;
+}
+
+.confirmar_container {
+    background-color: rgba(26, 26, 26, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    max-width: 65%;
+    height: fit-content;
+    max-height: 95vh;
+    justify-content: flex-start;
+    align-items: stretch;
+    box-sizing: border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Sección del Título */
+#confirmar_container_titulo {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#confirmar_titulo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.confirmar_container_separador {
+    width: 80%;
+    align-self: center;
+    background-color: white;
+    height: 1px;
+    margin: 2% 0;
+}
+
+/* Sección del Cuerpo (Cartel + Info Sesión) */
+#confirmar_container_body {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    font-weight: bold;
+    font-size: 1.3em;
+    flex-shrink: 0;
+}
+
+#confirmar_cartel_div {
+    flex: 0 0 35%;
+    max-width: 250px;
+    margin-left: 15%;
+}
+
+.confirmar_cartel_img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#sesion_titulos_div, #sesion_datos_div {
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#sesion_titulos_div {
+    color: #6feaf6;
+    align-items: flex-end;
+}
+
+#sesion_datos_div {
+    align-items: flex-start;
+}
+
+.sesion_titulos, .sesion_datos {
+    padding: 6px 0;
+    line-height: 1.5;
+}
+
+#sesion_datos_titulo {
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+/* --- Contenedor Principal de Entradas --- */
+#confirmar_container_entradas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 5%;
+    flex-grow: 1;
+}
+
+/* --- Fila Superior: Título "Asientos Seleccionados" y Botones --- */
+.asiento_div_superior {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+#entradas_titulo {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#confirmar_container_botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --- Fila Inferior: Detalles de los Asientos --- */
+.asiento_div {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 15vh;
+    gap: 10px;
+    font-size: 1em;
+}
+
+/* NUEVO: Estilo para las columnas principales dentro de .asiento_div */
+.asiento_div_columna {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Específicamente para la columna de detalles de asientos */
+#asiento_div_asientos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Específicamente para la columna de detalles de precio */
+#asiento_div_precio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10%;
+    align-items: flex-start;
+    border-left: 1px solid black;
+}
+
+/* Estilos para las sub-columnas DENTRO de #asiento_div_asientos */
+.asiento_columna {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.asiento_columna_texto {
+    color: black;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.asiento_columna_textoprecio {
+    font-size: 1.2em;
+    color: #d12d10;
+    font-weight: bold;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+
+/* --- Estilos para los Botones --- */
+.boton_continuar {
+    padding: 9px 18px;
+    color: white;
+    background-color: #d12d10;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.boton_continuar:hover {
+    background-color: #b3250e;
+}
+
+.boton_volver {
+    padding: 9px 18px;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.boton_volver:hover {
+    background-color: #e0e0e0;
+    border-color: #bbbbbb;
+}
+
+/* --- Diseño Responsive --- */
+@media (max-width: 1200px) {
+    .confirmar_container {
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .asiento_div {
+        font-size: 0.9em;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .confirmar_container {
+        width: 90%;
+        max-width: 95%;
+    }
+
+    #confirmar_container_body {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #confirmar_cartel_div {
+        margin-left: 0;
+        margin-bottom: 15px;
+        max-width: 200px;
+    }
+
+    #sesion_titulos_div, #sesion_datos_div {
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        align-items: center;
+    }
+
+    .asiento_div_superior {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #entradas_titulo {
+        order: 2;
+    }
+
+    #confirmar_container_botones {
+        width: 100%;
+        justify-content: space-between;
+        order: 1;
+    }
+
+    .asiento_div {
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .asiento_div_columna {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    #asiento_div_asientos {
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    .asiento_columna {
+        justify-content: space-between;
+        padding: 3px 0;
+        border-bottom: 1px solid #eee;
+    }
+    #asiento_div_asientos > .asiento_columna:last-child {
+        border-bottom: none;
+    }
+
+    #asiento_div_precio {
+        flex-direction: row;
+        border: none;
+        border-top: 1px solid black;
+    }
+
+    #asiento_columna_preciotitulos,
+    #asiento_columna_preciodatos {
+        flex-direction: column;
+    }
+    
+    .asiento_columna_texto {
+        font-size: 0.9em;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmar_container {
+        width: 95%;
+        padding: 5px;
+        max-width: 95%;
+    }
+
+    #confirmar_container_body {
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #confirmar_cartel_div {
+        flex: 1 1 100%;
+        margin-left: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    #confirmar_cartel_img {
+        max-width: 150px;
+    }
+
+
+    #sesion_titulos_div,
+    #sesion_datos_div {
+        width: 45%;
+        flex-basis: auto;
+        margin-right: 0;
+        padding-left: 0;
+        align-items: flex-end;
+        justify-content: space-between;
+        font-size: 0.9em;
+    }
+
+    #sesion_datos_div {
+        align-items: flex-start;
+    }
+
+
+    #confirmar_container_entradas {
+        margin: 0 2%;
+    }
+
+    #entradas_titulo {
+        font-size: 1.1em;
+    }
+
+    #confirmar_container_botones {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .boton_confirmar {
+        display: flex;
+    }
+    .boton_confirmar button {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .asiento_div {
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+        font-size: 0.9em;
+        height: 15vh;
+    }
+
+    .asiento_div_columna {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    #asiento_div_asientos {
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    .asiento_columna {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3px 0;
+        border-bottom: 1px solid #eee;
+    }
+    #asiento_div_asientos > .asiento_columna:last-child {
+        border-bottom: none;
+    }
+
+    #asiento_div_precio {
+        flex-direction: row;
+        border: none;
+        border-top: 1px solid black;
+    }
+
+    #asiento_columna_preciotitulos,
+    #asiento_columna_preciodatos {
+        flex-direction: column;
+    }
+    
+    .asiento_columna_texto {
+        white-space: normal;
+    }
+}

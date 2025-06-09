@@ -10,7 +10,7 @@ El propósito principal es automatizar y simplificar las operaciones diarias de 
 
 Este proyecto ofrece un conjunto robusto de funcionalidades
 
-<h4>Dashboard de Administración:</h4> Un panel de control intuitivo y completo que permite a los administradores gestionar integralmente:
+<h3>Dashboard de Administración</h3> Un panel de control intuitivo y completo que permite a los administradores gestionar integralmente:
 
 <h4>Películas</h4> Añadir, editar y buscar información de películas.
 
